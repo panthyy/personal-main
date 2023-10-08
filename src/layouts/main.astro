@@ -13,7 +13,7 @@ import { ViewTransitions} from 'astro:transitions';
 	</head>
 	<body >
         <Header/>
-		 <slot />
+		<slot />
 	</body>
 </html>
 
@@ -27,4 +27,24 @@ import { ViewTransitions} from 'astro:transitions';
 		overflow-x: hidden;
 	}
 
-	</style>
+	
+	@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+</style>

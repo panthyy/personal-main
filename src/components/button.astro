@@ -6,7 +6,6 @@ import { twMerge } from 'tailwind-merge';
 export type Props = HTMLAttributes<'button'> &{
   variant?: 'primary' | 'secondary' | 'tertiary';
   fullWidth?: boolean;
-  className?: string;
 };
 
 const buttonVariants = cva(['px-5 font-medium py-2 flex items-center justify-center whitespace-nowrap rounded-md'], {
@@ -27,9 +26,9 @@ const buttonVariants = cva(['px-5 font-medium py-2 flex items-center justify-cen
   },
 });
 
-const { variant, className, fullWidth, ...props } = Astro.props;
+const { variant, fullWidth, ...props } = Astro.props;
 ---
 
-<button class={twMerge(className, buttonVariants({ intent: variant, fullWidth: fullWidth }))} {...props}>
+<button class={twMerge(buttonVariants({ intent: variant, fullWidth: fullWidth }), props.class)} {...props}>
   <slot />
 </button>

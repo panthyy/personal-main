@@ -1,14 +1,21 @@
 
 ---
+import { twMerge } from 'tailwind-merge';
 import type { HTMLAttributes } from 'astro/types';
 export type Props = HTMLAttributes<'button'> & {
     className?: string,
 }
 
-const { className,...props } = Astro.props
+const {...props } = Astro.props
 
 ---
-<div class={className} {...props}>
+<div 
+class={
+    twMerge(
+        'relative inline-block',
+        props.class
+    )
+}>
     <slot/>
         <div class='absolute -top-[100%] -z-20 -left-[60%] w-[300%] h-[300%] flex items-center justify-center '>
             <div  
