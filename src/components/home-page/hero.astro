@@ -24,9 +24,11 @@ import Picture from '../picture.astro';
       </Button>
     </div>
     <GradientContainer
+      id="hero-image-gradient"
       className="w-1/2 min-w-[70%] md:w-full max-w-[600px] md:min-w-[400px] absolute md:relative bottom-0 right-0"
     >
-      <Picture class="xl"  src={HeroImage} />
+      
+      <Picture id='hero-image'  class="xl"  src={HeroImage} />
     </GradientContainer>
   </section>
 </div>
@@ -46,6 +48,13 @@ import Picture from '../picture.astro';
 
   #contact-me {
     animation: fadeIn 0.45s ease-in-out 0.9s both;
+  }
+
+  #hero-image-gradient {
+    animation: fadeIn 0.8s ease-in-out 0.9s both;
+  }
+  #hero-image {
+    animation: fadeIn 0.8s ease-in-out 0.9s both;
   }
 
   @keyframes fadeIn {

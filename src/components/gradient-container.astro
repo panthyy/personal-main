@@ -1,13 +1,14 @@
 
 ---
-export type Props = {
+import type { HTMLAttributes } from 'astro/types';
+export type Props = HTMLAttributes<'button'> & {
     className?: string,
 }
 
-const { className } = Astro.props
+const { className,...props } = Astro.props
 
 ---
-    <div class={className}>
+<div class={className} {...props}>
     <slot/>
         <div class='absolute -top-[100%] -z-20 -left-[60%] w-[300%] h-[300%] flex items-center justify-center '>
             <div  
