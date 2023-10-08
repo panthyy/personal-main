@@ -1,19 +1,27 @@
 ---
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
+import { HTMLAttributes } from 'astro/types';
+import { twMerge } from 'tailwind-merge';
 
-export type Props = {
+export type Props =  HTMLAttributes<'section'> & {
   companies: {
     src: ImageMetadata;
     alt: string;
   }[];
 };
 
-const { companies } = Astro.props;
+const { companies , ...props} = Astro.props;
 
 ---
 
-<section class="pt-20 w-full flex items-center flex-col">
+<section 
+ id= {props.id}
+class={twMerge(
+        "pt-20 w-full flex items-center flex-col",
+        props.class
+    )
+} >
   <p class=" text-lg  font-semibold">Companies I've worked with</p>
   <div class='flex marquee'>
     <div class="py-12 gap-6 marquee__inner  whitespace-nowrap inline-block" aria-hidden="true" id='banner-container'>
