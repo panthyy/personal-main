@@ -3,15 +3,15 @@ import Container from './container.astro'
 import Picture from './picture.astro'
 import Excellence from '../assets/excellence.png'
 ---
-<Container class='overflow-hidden'>
-	<div class='flex flex-col md:flex-row gap-8 items-start justify-between'>
-		<div class='w-[730px]'>
+<Container>
+	<div class='flex flex-col-reverse  md:flex-row gap-8 items-start justify-between'>
+		<div class='md:w-[730px]'>
 			<p class='font-semibold animate-slide-in'> Project 1 </p>
 			<h2 class='mt animate-fade-in-1'> Project title </h2>
 			<p class='animate-fade-in-2'>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.
 			</p>
-			<div class='flex gap-4 mt-8 animate-fade-in-3'>
+			<div class='flex flex-col md:flex-row gap-4 mt-8 animate-fade-in-3'>
 				<div>
 					<h6> Challenge One </h6>
 					<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p>
@@ -25,6 +25,6 @@ import Excellence from '../assets/excellence.png'
 				<a class='animate-fade-in-2' href='/project/12'> View Project </a>
 			</div>
 		</div>
-		<Picture src={Excellence} alt='Excellence' />
+		<Picture src={Excellence}  />
 	</div>
 </Container>

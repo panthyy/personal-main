@@ -9,7 +9,7 @@ const { ...props } = Astro.props;
 ---
 
 <section class={
-    twMerge('w-full min-h-[700px] h-[calc(100vh-100px)] py-16 md:py-28 md:px-16 px-5', props.class)
+    twMerge('w-full min-h-[700px] md:h-[calc(100vh-100px)] py-16 md:py-28 overflow-hidden md:px-16 px-5', props.class)
     }>
     <div class='inner-section max-w-[1440px] mx-auto w-full'>
         <slot/>
