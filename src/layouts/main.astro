@@ -1,54 +1,51 @@
 ---
-import Header from '../components/header.astro'
-import { ViewTransitions} from 'astro:transitions';
+import Header from '../components/header.astro';
+import { ViewTransitions } from 'astro:transitions';
 ---
+
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-        <ViewTransitions/>
-	</head>
-	<body >
-        <Header/>
-		<slot />
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <Header transition:persist />
+    <slot />
+  </body><style is:global>
+    html,
+    body {
+      min-height: 100vh;
+    }
+    html {
+      overflow-x: hidden;
+    }
+
+    * {
+      z-index: 1;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  </style>
 </html>
-
-
-<style is:global>
-
-	html,body {
-		min-height: 100vh;
-	}
-	html {
-		overflow-x: hidden;
-	}
-
-  * {
-   z-index: 1;
-  }
-
-	
-	@keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  @keyframes slideIn {
-    0% {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-</style>

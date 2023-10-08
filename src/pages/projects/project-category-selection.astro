@@ -1,0 +1,47 @@
+---
+import { navigate } from 'astro:transitions/client';
+export type Props = {
+  categories: {
+    label: string;
+    value: string;
+  }[];
+};
+
+const { categories } = Astro.props;
+---
+
+<div id="project-category-selection" >
+  <p class="font-semibold text-lg">Project categories</p>
+  <ul class="mt-4">
+    {
+      categories.map((category) => (
+        <li class="max-w-[240px] w-full box-content rounded-md hover:underline transition-colors duration-200">
+          <a
+            data-category={category.value}
+            href={`/projects/category/${category.value}`}
+            class="project-category-selection px-4 py-3 hover:text-accent  w-full inline-block "
+          >
+            {category.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  .selected-category {
+    background-color: rgb(229 237 245);
+  }
+</style>
+<script>
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll('.project-category-selection').forEach((el) => {
+      el.addEventListener('click', (e) => {
+        const category = el.getAttribute('data-category')!;
+        document.querySelectorAll('.selected-category').forEach((el) => el.classList.remove('selected-category'));
+        el.classList.add('selected-category');
+      });
+    });
+  });
+</script>

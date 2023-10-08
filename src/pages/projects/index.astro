@@ -1,0 +1,36 @@
+---
+import Container from '../../components/container.astro';
+import Layout from '../../layouts/main.astro';
+import Header from './header.astro';
+import ProjectCategorySelection from './project-category-selection.astro';
+
+const categories = [
+  {
+    label: 'SaaS',
+    value: 'saas',
+  },
+  {
+    label: 'eCommerce',
+    value: 'ecommerce',
+  },
+  {
+    label: 'Marketplace',
+    value: 'marketplace',
+  },
+  {
+    label: 'Social',
+    value: 'social',
+  },
+];
+---
+
+<Layout transition:persist>
+  <Container>
+    <Header transition:persist/>
+    </div>
+    <div class="flex gap-16 mt-20" >
+      <ProjectCategorySelection  transition:persist transition:name="category-selection" categories={categories} />
+    </div>
+  </Container>
+</Layout>
+

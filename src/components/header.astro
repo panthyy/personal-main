@@ -1,14 +1,9 @@
----
-const pathname = new URL(Astro.request.url).pathname;
-
-const currentPath = pathname.slice(1);
----
 
 <header transition:persist class='flex items-center gap-6 px-5 py-6 pt-12 md:px-16'>
     <a href="/"><h6 class='m-0'>Fahad Alhatshami</h6></a>
     <nav>
         <ul class='flex items-center gap-8'>
-            </li><a href=""> Projects</a></li>
+            </li><a href="/projects"> Projects</a></li>
             </li><a href="/blog" > Blog</a>
         </ul>
     </nav>
