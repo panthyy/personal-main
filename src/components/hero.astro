@@ -4,20 +4,57 @@ import { Image } from 'astro:assets';
 import GradientContainer from '../components/gradient-container.astro';
 ---
 
-<div class='w-full flex items-center justify-center shrink-0'>
-  <section class="landing-hero relative h-[700px] py-16  md:py-20 px-5 md:px-16 gap-20 flex md:items-center max-w-[1440px]">
+<div class="w-full flex items-center justify-center shrink-0">
+  <section
+    class="landing-hero relative h-[700px] py-16 md:py-20 px-5 md:px-16 gap-20 flex md:items-center max-w-[1440px]"
+  >
     <div class="flex z-10 flex-col gap-6">
-      <p class="text-xl">Hey, I'm Fahad Alhatshami</p>
-      <h1 class="font-bold">A Software Engineer that loves to learn.</h1>
-      <p>
-        Currently embarking on an entrepreneurial journey, I'm exploring start-up ventures and embracing valuable lessons
-        from challenges and setbacks.
+      <p class="text-xl" id="hello">Hey, I'm Fahad Alhatshami</p>
+      <h1 class="font-bold" id="title">A Software Engineer that loves to learn.</h1>
+      <p id="subtitle" class=" opacity-0">
+        Currently embarking on an entrepreneurial journey, I'm exploring start-up ventures and embracing valuable
+        lessons from challenges and setbacks.
       </p>
     </div>
-    <GradientContainer className='w-1/2 min-w-[70%] md:w-full max-w-[600px] md:min-w-[400px] absolute md:relative bottom-0 right-0'>
+    <GradientContainer
+      className="w-1/2 min-w-[70%] md:w-full max-w-[600px] md:min-w-[400px] absolute md:relative bottom-0 right-0"
+    >
       <Image class="xl" loading="eager" src={HeroImage} alt="Hero Image" width={600} />
-      </GradientContainer>
-  
+    </GradientContainer>
   </section>
+</div>
 
-  </div>
+<style>
+  #title {
+    animation: fadeIn 0.45s ease-in-out 0.5s both;
+  }
+
+  #subtitle {
+    animation: fadeIn 0.45s ease-in-out 0.7s both;
+  }
+
+  #hello {
+    animation:  slideIn 0.45s ease-in-out 0s both;
+  }
+
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+</style>
