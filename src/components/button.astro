@@ -1,0 +1,35 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { cva } from 'class-variance-authority';
+import { twMerge } from 'tailwind-merge';
+
+export type Props = HTMLAttributes<'button'> &{
+  variant?: 'primary' | 'secondary' | 'tertiary';
+  fullWidth?: boolean;
+  className?: string;
+};
+
+const buttonVariants = cva(['px-5 font-medium py-2 flex items-center justify-center whitespace-nowrap rounded-md'], {
+  variants: {
+    intent: {
+      primary: 'bg-primary text-white',
+      secondary: 'bg-secondary text-accent hover:bg-secondary-hover',
+      tertiary: 'bg-tertiary text-white',
+    },
+    fullWidth: {
+      true: 'w-full',
+      false: 'w-min',
+    },
+  },
+  defaultVariants: {
+    intent: 'primary',
+    fullWidth: false,
+  },
+});
+
+const { variant, className, fullWidth, ...props } = Astro.props;
+---
+
+<button class={twMerge(className, buttonVariants({ intent: variant, fullWidth: fullWidth }))} {...props}>
+  <slot />
+</button>

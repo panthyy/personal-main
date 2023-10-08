@@ -10,8 +10,11 @@ module.exports = {
 				white: "#FFFFFF",
 				grey: "#F4F4F4",
 				primary: "#2A4C6F",
+				'primary-hover': "#1F3A54",
 				secondary: "#E5EDF5",
+				'secondary-hover': "#DCE6EE",
 				accent: "#0973DC",
+				'accent-hover': "#085FB6",
 			}
 		},
 	},
@@ -20,6 +23,7 @@ module.exports = {
 			addBase({
 				'*': {
 					color: '#333333',
+					zIndex: '10',
 				},
 				'h1,h2,h3,h4,h5,h6': { fontWeight: '700', fontFamily: 'Georgia, serif' },
 				'p': { fontFamily: 'Arial, sans-serif' },

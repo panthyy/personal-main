@@ -1,9 +1,24 @@
 ---
-import Hero from '../components/hero.astro'
-import Layout from '../layouts/main.astro'
-
+import Hero from '../components/home-page/hero.astro';
+import Layout from '../layouts/main.astro';
+import CompaniesWheel from '../components/home-page/companies-wheel.astro';
+import WorkPerformance from '../assets/work-performance.svg';
+import Compileit from '../assets/compileit.svg';
+import { Image } from 'astro:assets';
 ---
 
 <Layout>
-	<Hero/>
+  <Hero />
+  <CompaniesWheel
+    companies={[
+      {
+        alt: 'Compileit',
+        src: Compileit,
+      },
+      {
+        alt: 'Work Performance',
+        src: WorkPerformance,
+      },
+    ]}
+  />
 </Layout>

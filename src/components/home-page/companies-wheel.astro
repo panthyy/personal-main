@@ -1,0 +1,87 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+export type Props = {
+  companies: {
+    src: ImageMetadata;
+    alt: string;
+  }[];
+};
+
+const { companies } = Astro.props;
+
+---
+
+<section class="pt-20 w-full flex items-center flex-col">
+  <p class=" text-lg  font-semibold">Companies I've worked with</p>
+  <div class='flex marquee'>
+    <div class="py-12 gap-6 marquee__inner  whitespace-nowrap inline-block" aria-hidden="true" id='banner-container'>
+        {companies.map((company, idx) => ( 
+            <div class='inline-block w-[200px]'>
+                <Image  src={company.src}  alt={company.alt}  class='h-12 m-auto'/> 
+            </div>
+        ))}
+         {companies.map((company, idx) => ( 
+            <div class='inline-block w-[200px]'>
+                <Image  src={company.src}  alt={company.alt}  class='h-12 m-auto'/> 
+            </div>
+        ))}
+         {companies.map((company, idx) => ( 
+            <div class='inline-block w-[200px]'>
+                <Image  src={company.src}  alt={company.alt}  class='h-12 m-auto'/> 
+            </div>
+        ))}
+         {companies.map((company, idx) => ( 
+            <div class='inline-block w-[200px]'>
+                <Image  src={company.src}  alt={company.alt}  class='h-12 m-auto'/> 
+            </div>
+        ))}
+         {companies.map((company, idx) => ( 
+            <div class='inline-block w-[200px]'>
+                <Image  src={company.src}  alt={company.alt}  class='h-12 m-auto'/> 
+            </div>
+        ))}
+        
+      </div>
+      </div>
+</section>
+
+<style>
+
+.marquee {
+    position: relative;
+    overflow: hidden;
+    --offset: 24vw;
+    --move-initial: calc(-10% + var(--offset));
+    --move-final: calc(-30% + var(--offset));
+}
+
+.marquee__inner {
+    width: fit-content;
+    display: flex;
+    position: relative;
+    transform: translate3d(var(--move-initial), 0, 0);
+    animation: marquee 5s linear infinite;
+    animation-play-state: paused;
+}
+
+.marquee span {
+    font-size: 10vw;
+    padding: 0 2vw;
+}
+
+.marquee .marquee__inner {
+    animation-play-state: running;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate3d(var(--move-initial), 0, 0);
+    }
+
+    100% {
+        transform: translate3d(var(--move-final), 0, 0);
+    }
+}
+</style>

@@ -1,7 +1,9 @@
 ---
-import HeroImage from '../assets/Hero.png';
+import HeroImage from '../../assets/Hero.png';
 import { Image } from 'astro:assets';
-import GradientContainer from '../components/gradient-container.astro';
+import GradientContainer from '../gradient-container.astro';
+import Button from '../button.astro';
+import Picture from '../picture.astro';
 ---
 
 <div class="w-full flex items-center justify-center shrink-0">
@@ -11,15 +13,20 @@ import GradientContainer from '../components/gradient-container.astro';
     <div class="flex z-10 flex-col gap-6">
       <p class="text-xl" id="hello">Hey, I'm Fahad Alhatshami</p>
       <h1 class="font-bold" id="title">A Software Engineer that loves to learn.</h1>
-      <p id="subtitle" class=" opacity-0">
+      <p id="subtitle" class="opacity-0">
         Currently embarking on an entrepreneurial journey, I'm exploring start-up ventures and embracing valuable
         lessons from challenges and setbacks.
       </p>
+      <Button id="contact-me" variant='secondary'>
+        <a href="#about">
+          Contact Me
+        </a>
+      </Button>
     </div>
     <GradientContainer
       className="w-1/2 min-w-[70%] md:w-full max-w-[600px] md:min-w-[400px] absolute md:relative bottom-0 right-0"
     >
-      <Image class="xl" loading="eager" src={HeroImage} alt="Hero Image" width={600} />
+      <Picture class="xl"  src={HeroImage} />
     </GradientContainer>
   </section>
 </div>
@@ -34,9 +41,12 @@ import GradientContainer from '../components/gradient-container.astro';
   }
 
   #hello {
-    animation:  slideIn 0.45s ease-in-out 0s both;
+    animation: slideIn 0.45s ease-in-out 0s both;
   }
 
+  #contact-me {
+    animation: fadeIn 0.45s ease-in-out 0.9s both;
+  }
 
   @keyframes fadeIn {
     0% {
