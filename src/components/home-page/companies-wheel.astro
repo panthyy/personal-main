@@ -16,9 +16,8 @@ const { companies , ...props} = Astro.props;
 ---
 
 <section 
- id= {props.id}
 class={twMerge(
-        "pt-20 w-full flex items-center flex-col",
+        "pt-20 w-full flex items-center flex-col hidden-opacity companies-wheel",
         props.class
     )
 } >
@@ -54,6 +53,45 @@ class={twMerge(
       </div>
       </div>
 </section>
+
+<style>
+	.hidden-opacity {
+		opacity: 0;
+	}
+
+	.companies-wheel {
+		transition: opacity 0.6s ease-in-out;
+	}
+</style>
+
+<script >
+    
+    let observer: IntersectionObserver | null = null;
+    document.addEventListener('astro:page-load', () => {
+	    const companiesWheel = document.querySelector('.companies-wheel');
+
+        if(!companiesWheel) return;
+        const cb = (entries) => {
+            entries.every(entry => {
+                if (entry.isIntersecting ) {
+                     companiesWheel.classList.remove('hidden-opacity');
+                }
+            });
+        };
+
+        let companiesWheelObserver = new IntersectionObserver(cb, {
+		rootMargin: '0px',
+		threshold: 0.8
+	    });
+    
+        companiesWheelObserver.observe(companiesWheel)
+
+        companiesWheel?.classList.add('hidden-opacity');
+
+    });
+
+</script>
+
 
 <style>
 

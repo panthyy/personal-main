@@ -10,8 +10,7 @@ import { Image } from 'astro:assets';
 <Layout>
   <Hero />
   <CompaniesWheel
-  id="companies-wheel"
-  class="hidden-opacity"
+
   companies={[
 	{
 	  alt: 'Compileit',
@@ -26,37 +25,3 @@ import { Image } from 'astro:assets';
 </Layout>
 
 
-<style is:global>
-	.hidden-opacity {
-		opacity: 0;
-	}
-
-	#companies-wheel {
-		transition: opacity 0.6s ease-in-out;
-	}
-</style>
-
-<script>
-
-	const companiesWheel = document.getElementById('companies-wheel');
-	let shown = false;
-
-	const cb = (entries, observer) => {
-		console.log('entries', entries);
-		entries.every(entry => {
-			if (entry.isIntersecting && !shown) {
-				 shown = true;
-				 companiesWheel.classList.remove('hidden-opacity');
-			}
-		});
-	};
-
-	let companiesWheelObserver = new IntersectionObserver(cb, {
-		rootMargin: '0px',
-		threshold: 0.8
-	});
-
-	companiesWheelObserver.observe(document.getElementById('companies-wheel'));
-	
-
-</script>
