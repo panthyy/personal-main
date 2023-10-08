@@ -1,0 +1,23 @@
+---
+import HeroImage from '../assets/Hero.png';
+import { Image } from 'astro:assets';
+import GradientContainer from '../components/gradient-container.astro';
+---
+
+<div class='w-full flex items-center justify-center shrink-0'>
+  <section class="landing-hero relative h-[700px] py-16  md:py-20 px-5 md:px-16 gap-20 flex md:items-center max-w-[1440px]">
+    <div class="flex z-10 flex-col gap-6">
+      <p class="text-xl">Hey, I'm Fahad Alhatshami</p>
+      <h1 class="font-bold">A Software Engineer that loves to learn.</h1>
+      <p>
+        Currently embarking on an entrepreneurial journey, I'm exploring start-up ventures and embracing valuable lessons
+        from challenges and setbacks.
+      </p>
+    </div>
+    <GradientContainer className='w-1/2 min-w-[70%] md:w-full max-w-[600px] md:min-w-[400px] absolute md:relative bottom-0 right-0'>
+      <Image class="xl" loading="eager" src={HeroImage} alt="Hero Image" width={600} />
+      </GradientContainer>
+  
+  </section>
+
+  </div>

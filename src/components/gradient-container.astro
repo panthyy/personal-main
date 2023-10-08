@@ -1,0 +1,24 @@
+
+---
+export type Props = {
+    className?: string,
+}
+
+const { className } = Astro.props
+
+---
+    <div class={className}>
+    <slot/>
+        <div class='absolute -top-[100%] -left-[60%] w-[300%] h-[300%] flex items-center justify-center '>
+            <div  
+            class='gradient-spotlight -z-20 w-full h-full '></div>
+        </div>
+</div>
+
+<style>
+    .gradient-spotlight {
+		background-image: linear-gradient(90deg, #245383 0%, #0973DC 48.44%, #E5EDF5 100%);
+		mask-image:  radial-gradient(rgba(0, 0, 0, 0.5), transparent 50%);
+        pointer-events: none;
+	}
+</style>
