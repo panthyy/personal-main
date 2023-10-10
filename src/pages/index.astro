@@ -5,101 +5,106 @@ import CompaniesWheel from '../components/home-page/companies-wheel.astro';
 import WorkPerformance from '../assets/work-performance.svg';
 import Compileit from '../assets/compileit.svg';
 import Container from '../components/container.astro';
-import Excellence from "../assets/excellence.png";
-import Picture from '../components/picture.astro'
-import GradientContainer from '../components/gradient-container.astro'
-import ProjectSection from '../components/project-section.astro'
+import Excellence from '../assets/excellence.png';
+import Picture from '../components/picture.astro';
+import GradientContainer from '../components/gradient-container.astro';
+import ProjectSection from '../components/project-section.astro';
 import Footer from '../components/footer.astro';
 ---
 
-<Layout>
+<Layout
+  title="Fahad Alhatshami - Software Engineer | Crafting Innovative Digital Solutions"
+  description="Explore the portfolio of Fahad Alhatshami, a dedicated Software Engineer with a penchant for developing innovative digital solutions. Navigate through a collection of diverse projects, showcasing a holistic approach to problem-solving and a commitment to driving technological advancement."
+>
   <Hero />
   <CompaniesWheel
-	companies={[
-		{
-		  alt: 'Compileit',
-		  src: Compileit,
-		},
-		{
-		  alt: 'Work Performance',
-		  src: WorkPerformance,
-		},
-  	]}
-/>
+    companies={[
+      {
+        alt: 'Compileit',
+        src: Compileit,
+      },
+      {
+        alt: 'Work Performance',
+        src: WorkPerformance,
+      },
+    ]}
+  />
 
-<Container class='overflow-hidden'>
-	<div class='flex flex-col md:flex-row gap-8 items-start justify-between'>
-		<div class='md:w-[730px]'>
-			<p class='font-semibold animate-slide-in'> About me </p>
-			<h2 class='mt animate-fade-in-1'> Digital Engineering Excellence </h2>
-			<p class='animate-fade-in-2'>
-				In the software engineering landscape, my technical proficiency in Typescript, Go, and 
-				React intertwines with an enthusiasm and dedication to continuous improvement. 
-				I focus on developing software that is both functionally robust and meticulously 
-				crafted for optimal user experience and accessibility. My journey goes beyond coding, 
-				weaving a narrative where technology meets real-world solutions, ensuring every line 
-				of code contributes to user-centric and innovative applications.
-			</p>
-			<ul class='mt-8 flex flex-col gap-4 animate-fade-in-3'>
-				<li> Passionate Learner: Continuously honing software engineering skills. </li>
-				<li> User-Centric Approach: Prioritizing intuitive, accessible software development. </li>
-				<li> Innovation-Driven Development: Pioneering solutions that push boundaries. </li>
-			</ul>
-		</div>
-		<GradientContainer class='animate-fade-in-3'>
-			<Picture src={Excellence} />
-		</GradientContainer>
-	</div>
-</Container>
+  <Container class="overflow-hidden">
+    <div class="flex flex-col md:flex-row gap-8 items-start justify-between">
+      <div class="md:w-[730px]">
+        <p class="font-semibold animate-slide-in">About me</p>
+        <h2 class="mt animate-fade-in-1">Digital Engineering Excellence</h2>
+        <p class="animate-fade-in-2">
+          In the software engineering landscape, my technical proficiency in Typescript, Go, and React intertwines with
+          an enthusiasm and dedication to continuous improvement. I focus on developing software that is both
+          functionally robust and meticulously crafted for optimal user experience and accessibility. My journey goes
+          beyond coding, weaving a narrative where technology meets real-world solutions, ensuring every line of code
+          contributes to user-centric and innovative applications.
+        </p>
+        <ul class="mt-8 flex flex-col gap-4 animate-fade-in-3">
+          <li>Passionate Learner: Continuously honing software engineering skills.</li>
+          <li>User-Centric Approach: Prioritizing intuitive, accessible software development.</li>
+          <li>Innovation-Driven Development: Pioneering solutions that push boundaries.</li>
+        </ul>
+      </div>
+      <GradientContainer class="animate-fade-in-3">
+        <Picture src={Excellence} />
+      </GradientContainer>
+    </div>
+  </Container>
 
+  <Container>
+    <div class="flex flex-col md:flex-row gap-8 items-start justify-between">
+      <div class="md:w-[730px]">
+        <p class="font-semibold animate-slide-in">My Experience</p>
+        <h2 class="animate-fade-in-1">Professional Odyssey: Navigating Past Endeavorse</h2>
+      </div>
+    </div>
+  </Container>
 
-<Container>
-	<div class='flex flex-col md:flex-row gap-8 items-start justify-between'>
-		<div class='md:w-[730px]'>
-			<p class='font-semibold animate-slide-in'> My Experience </p>
-			<h2 class=' animate-fade-in-1'> Professional Odyssey: Navigating Past Endeavorse </h2>
-		</div>
-	</div>
-</Container>
+  <Container class="bg-secondary md:h-fit min-h-fit md:py-20 animate-fade-in">
+    <h2>Looking for a new Team Member?</h2>
+    <p>
+      Whether you are looking for a new team member or just want to say hi,
+      <br />
+       I'd love to hear from you. Feel free to reach out to me at <a
+        class="text-accent hover:underline"
+        href="mailto:fahad@alhatshami.com"
+      >
+        fahad@alhatshami.com
+      </a>
+    </p>
+  </Container>
 
-<Container class='bg-secondary md:h-fit min-h-fit md:py-20 animate-fade-in'>
-	<h2> Looking for a new Team Member? </h2>
-	<p> 
-		Whether you are looking for a new team member or just want to say hi, 
-		<br />
-		I'd love to hear from you. 
-		Feel free to reach out to me at <a class='text-accent hover:underline' href='mailto:fahad@alhatshami.com'> fahad@alhatshami.com </a>
-	</p>
-</Container>
+  <Container class="h-fit min-h-fit md:py-20 md:pt-28">
+    <div class="flex flex-col w-full gap-2 animate-fade-in items-center">
+      <h2 class="font-semibold">Projects</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+      </p>
+    </div>
+  </Container>
 
+  <ProjectSection />
+  <ProjectSection />
 
-<Container class='h-fit min-h-fit md:py-20 md:pt-28'>
-	<div class='flex flex-col w-full gap-2 animate-fade-in items-center'>
-		<h2 class='font-semibold '> Projects  </h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p>
-	</div>
-</Container>
+  <Container>
+    <div class="flex flex-col md:flex-row gap-8 items-start justify-between">
+      <div class="md:w-[730px]">
+        <h2 class="font-semibold animate-slide-in">Frequently Asked Questions</h2>
+        <p class="animate-fade-in-1">
+          Frequently asked questions ordered by popularity. Remember that if the visitor has not committed to the call
+          to action, they may still have questions (doubts) that can be answered.
+        </p>
+      </div>
 
+      <ul class="flex flex-col gap-4 animate-fade-in-3">
+        <li class="animate-fade-in-2">What is the difference between a web designer and a web developer?</li>
+        <li class="animate-fade-in-3">What is the difference between a web designer and a web developer?</li>
+        <li class="animate-fade-in-4">What is the difference between a web designer and a web developer?</li>
+      </ul>
+    </div>
+  </Container>
 
-<ProjectSection/>
-<ProjectSection/>
-
-<Container>
-	<div class='flex flex-col md:flex-row gap-8 items-start justify-between'>
-		<div class='md:w-[730px]'>
-			<h2 class='font-semibold animate-slide-in'> Frequently Asked Questions </h2>
-			<p class=' animate-fade-in-1'> Frequently asked questions ordered by popularity. Remember that if the visitor has not committed to the call to action, they may still have questions (doubts) that can be answered. </p>
-		</div>
-
-		<ul class='flex flex-col gap-4 animate-fade-in-3'>
-			<li class='animate-fade-in-2'> What is the difference between a web designer and a web developer? </li>
-			<li class='animate-fade-in-3'> What is the difference between a web designer and a web developer? </li>
-			<li class='animate-fade-in-4'> What is the difference between a web designer and a web developer? </li>
-		</ul>
-	</div>
-</Container>
-
-	<Footer />
 </Layout>
-
-

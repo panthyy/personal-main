@@ -1,0 +1,116 @@
+---
+import Container from '../../components/container.astro';
+import Layout from '../../layouts/main.astro';
+import Header from './_header.astro';
+import Footer from '../../components/footer.astro';
+import ProjectCard from './project-card.astro';
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
+
+type Props = {
+  projects: CollectionEntry<'project'>[];
+  featuredProject: CollectionEntry<'project'>;
+  categories: Set<{ label: string; value: string }>;
+};
+export async function getStaticPaths() {
+  const allProjects = await getCollection('project');
+
+  const groupedByCategory = allProjects.reduce(
+    (acc, project) => {
+      const category = project.data.category;
+
+      const path = category ? `category/${category.value}` : undefined;
+      if (path) {
+        const _path = path.toLowerCase();
+        if (acc[_path]) {
+          acc[_path].push(project);
+        } else {
+          acc[_path] = [project];
+        }
+      }
+      return acc;
+    },
+    {} as Record<string, any[]>,
+  );
+
+  const paths: { params: { path: string | undefined }; props: Props }[] = [];
+
+  for (const [path, projects] of Object.entries(groupedByCategory)) {
+    paths.push({
+      params: { path },
+      props: {
+        projects: projects.filter((p) => p.data.featured),
+        featuredProject: projects.find((p) => p.data.featured),
+        categories: projects
+          .reduce((acc, c) => acc.add(c.data.category), new Set<{ label: string; value: string }>())
+          .values(),
+      },
+    });
+  }
+
+  paths.push({
+    params: { path: undefined },
+    props: {
+      projects: allProjects.filter((p) => !p.data.featured),
+      featuredProject: allProjects.find((p) => p.data.featured)!,
+      categories: allProjects.reduce((acc, c) => acc.add(c.data.category), new Set<{ label: string; value: string }>()),
+    },
+  });
+  console.log(paths);
+  return paths;
+}
+
+const { path } = Astro.params;
+const { projects, featuredProject, categories } = Astro.props as Props;
+
+console.log(projects, featuredProject);
+---
+
+<Layout
+  title="Fahad Alhatshami | Personal projects"
+  description="Fahad Alhatshami's personal projects, including SaaS, eCommerce, marketplace, and social media applications."
+>
+  <Container class="overflow-visible md:pt-24">
+    <Header transition:persist />
+    <div class="flex gap-16 mt-20">
+      <div id="project-category-selection" class="whitespace-nowrap">
+        <p class="font-semibold text-lg">Project categories</p>
+        <ul class="mt-4">
+          {
+            Array.from(categories).map((c) => (
+              <li
+                class={
+                  'max-w-[240px] mt-2 w-full box-content rounded-md hover:underline transition-colors duration-200' +
+                  (path && path.includes(c.value) ? ' bg-secondary text-accent' : '')
+                }
+              >
+                <a href={`/projects/category/${c.value}`} class="px-4 py-3 hover:text-accent  w-full inline-block">
+                  {c.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="w-full flex flex-col gap-16">
+        <div class="big-blog-post">
+          <div class="img bg-gray-200 w-full h-[400px]"></div>
+          <div class="mt-4">
+            <div class="flex gap-4 items-center">
+              <p class="px-2 bg-gray-100 py-1 rounded-sm font-semibold text-sm">Category</p>
+              <p class="font-semibold text-sm">5 minute read</p>
+            </div>
+            <h4>{featuredProject.data.title}</h4>
+            <p class="mt-2">
+              {featuredProject.data.description}
+            </p>
+            <a href="#" class="mt-4 inline-block font-semibold text-sm"> Read more</a>
+          </div>
+        </div>
+
+        <div class="flex gap-8 flex-wrap w-full">
+          {projects.map((project) => <ProjectCard project={project} />)}
+        </div>
+      </div>
+    </div>
+  </Container>
+</Layout>
