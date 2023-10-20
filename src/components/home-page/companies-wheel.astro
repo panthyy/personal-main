@@ -1,7 +1,7 @@
 ---
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
-import { HTMLAttributes } from 'astro/types';
+import type { HTMLAttributes } from 'astro/types';
 import { twMerge } from 'tailwind-merge';
 
 export type Props =  HTMLAttributes<'section'> & {
@@ -71,7 +71,7 @@ class={twMerge(
 	    const companiesWheel = document.querySelector('.companies-wheel');
 
         if(!companiesWheel) return;
-        const cb = (entries) => {
+        const cb = (entries: IntersectionObserverEntry[]) => {
             entries.every(entry => {
                 if (entry.isIntersecting ) {
                      companiesWheel.classList.remove('hidden-opacity');

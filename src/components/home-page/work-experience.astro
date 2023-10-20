@@ -1,0 +1,34 @@
+---
+import Container from '../container.astro';
+import WorkExperienceSection from './work-experience-section.astro';
+
+const companies = [
+  {
+    company: 'Work Performance',
+    title: 'FullStack Developer',
+    description: 'Tailspiral offers a streamlined solution for handling modular website components, enabling developers to easily create, manage, and deploy individual user interface elements while maintaining a cohesive and consistent user experience. This innovative approach allows for greater flexibility and scalability in web development, as each component can be developed, tested, and updated independently of the others.',
+  },
+  {
+    company: 'Tailspiral',
+    title: 'Founder',
+    description: 'Tailspiral offers a streamlined solution for handling modular website components, enabling developers to easily create, manage, and deploy individual user interface elements while maintaining a cohesive and consistent user experience. This innovative approach allows for greater flexibility and scalability in web development, as each component can be developed, tested, and updated independently of the others.',
+  },
+  {
+    company: 'Compileit',
+    title: 'FullStack Web Developer',
+    description: 'Tailspiral offers a streamlined solution for handling modular website components, enabling developers to easily create, manage, and deploy individual user interface elements while maintaining a cohesive and consistent user experience. This innovative approach allows for greater flexibility and scalability in web development, as each component can be developed, tested, and updated independently of the others.'
+  }
+];
+---
+
+<Container class='h-min overflow-auto'>
+  <div class="flex flex-col md:flex-row gap-8 items-start justify-between">
+    <div class="md:w-[730px]">
+      <p class="font-semibold animate-slide-in">My Experience</p>
+      <h2 class="animate-fade-in-1">Professional Odyssey: Navigating Past Endeavorse</h2>
+    </div>
+    <div class="flex flex-col gap-4">
+      {companies.map((company) => <WorkExperienceSection experience={company} />)}
+    </div>
+  </div>
+</Container>

@@ -10,6 +10,7 @@ import Picture from '../components/picture.astro';
 import GradientContainer from '../components/gradient-container.astro';
 import ProjectSection from '../components/project-section.astro';
 import Footer from '../components/footer.astro';
+import WorkExperience from '../components/home-page/work-experience.astro';
 ---
 
 <Layout
@@ -53,15 +54,7 @@ import Footer from '../components/footer.astro';
       </GradientContainer>
     </div>
   </Container>
-
-  <Container>
-    <div class="flex flex-col md:flex-row gap-8 items-start justify-between">
-      <div class="md:w-[730px]">
-        <p class="font-semibold animate-slide-in">My Experience</p>
-        <h2 class="animate-fade-in-1">Professional Odyssey: Navigating Past Endeavorse</h2>
-      </div>
-    </div>
-  </Container>
+  <WorkExperience/>
 
   <Container class="bg-secondary md:h-fit min-h-fit md:py-20 animate-fade-in">
     <h2>Looking for a new Team Member?</h2>
