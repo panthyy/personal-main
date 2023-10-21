@@ -9,7 +9,7 @@ import Excellence from '../assets/excellence.png';
 import Picture from '../components/picture.astro';
 import GradientContainer from '../components/gradient-container.astro';
 import ProjectSection from '../components/project-section.astro';
-import Footer from '../components/footer.astro';
+import Button from '../components/button.astro';
 import WorkExperience from '../components/home-page/work-experience.astro';
 ---
 
@@ -54,7 +54,7 @@ import WorkExperience from '../components/home-page/work-experience.astro';
       </GradientContainer>
     </div>
   </Container>
-  <WorkExperience/>
+  <WorkExperience />
 
   <Container class="bg-secondary md:h-fit min-h-fit md:py-20 animate-fade-in">
     <h2>Looking for a new Team Member?</h2>
@@ -79,25 +79,96 @@ import WorkExperience from '../components/home-page/work-experience.astro';
     </div>
   </Container>
 
-  <ProjectSection />
-  <ProjectSection />
+  <ProjectSection
+    preTitle="Project 1"
+    title="Project Title"
+    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+    image={Excellence.src}
+    challenges={[
+      {
+        title: 'Challenge 1',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+      },
+      {
+        title: 'Challenge 2',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+      },
+    ]}
+    url="https://www.google.com"
+  />
 
-  <Container>
+  <ProjectSection
+    preTitle="Project 1"
+    title="Project Title"
+    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+    image={Excellence.src}
+    challenges={[
+      {
+        title: 'Challenge 1',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+      },
+      {
+        title: 'Challenge 2',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+      },
+    ]}
+    url="https://www.google.com"
+  />
+
+  <Container class="bg-secondary">
     <div class="flex flex-col md:flex-row gap-8 items-start justify-between">
-      <div class="md:w-[730px]">
+      <div class="md:w-[500px]">
         <h2 class="font-semibold animate-slide-in">Frequently Asked Questions</h2>
-        <p class="animate-fade-in-1">
-          Frequently asked questions ordered by popularity. Remember that if the visitor has not committed to the call
-          to action, they may still have questions (doubts) that can be answered.
+        <p class="animate-fade-in-1 mt-6">
+          Find answers to common queries about my work, techniques, and journey as a developer. Whether you're curious
+          about the tools I use or the inspiration behind a project.
         </p>
+        <a
+          href="mailto:fahad.alhatshami.com"
+          class="px-5 hover:cursor-pointer w-min font-medium mt-8 py-2 flex transition duration-300 items-center justify-center whitespace-nowrap rounded-md bg-transparent text-primary border border-primary hover:bg-primary/10"
+        >
+          Contact Me
+        </a>
       </div>
 
-      <ul class="flex flex-col gap-4 animate-fade-in-3">
-        <li class="animate-fade-in-2">What is the difference between a web designer and a web developer?</li>
-        <li class="animate-fade-in-3">What is the difference between a web designer and a web developer?</li>
-        <li class="animate-fade-in-4">What is the difference between a web designer and a web developer?</li>
+      <ul class="flex flex-col gap-4 w-[700px] animate-fade-in-3">
+        <li class="animate-fade-in-2">
+          <h6>What programming languages do you specialize in?</h6>
+          <p>
+            I specialize in Typescript, Go, and React. I also have experience with Python, Java, and a little bit of
+            rust. I am always looking to expand my skillset and learn new languages.
+          </p>
+        </li>
+
+        <li class="animate-fade-in-3">
+          <h6>How long have you been developing?</h6>
+          <p>
+            I have been passionately programming since 2017. so I have been recreationally programming for {
+              new Date().getFullYear() - 2017
+            } years. And I have been professionally programming for around {new Date().getFullYear() - 2021} years.
+          </p>
+        </li>
+
+        <li class="animate-fade-in-4">
+          <h6>Do you work on both front-end and back-end development?</h6>
+          <p>
+            Yes, but not only that. I love to work on the whole stack. I have experience with DevOps, CI/CD, and
+            infrastructure as code. I also have experience with cloud providers such as AWS and GCP.
+          </p>
+        </li>
+        <li class="animate-fade-in-5">
+          <h6>How do you stay updated with the latest in tech?</h6>
+          <p>
+            I dive into small projects and play around with new technologies. I try to stay away from "tutorials" and
+            "videos" as i believe that the best way to learn is to get your hands dirty and build something. I also love
+            to read books and articles about new technologies and how they work.
+          </p>
+        </li>
       </ul>
     </div>
   </Container>
-
 </Layout>

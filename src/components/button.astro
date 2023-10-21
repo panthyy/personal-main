@@ -4,16 +4,17 @@ import { cva } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
 
 export type Props = HTMLAttributes<'button'> &{
-  variant?: 'primary' | 'secondary' | 'tertiary';
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'outline';
   fullWidth?: boolean;
 };
 
-const buttonVariants = cva(['px-5 font-medium py-2 flex items-center justify-center whitespace-nowrap rounded-md'], {
+const buttonVariants = cva(['px-5 font-medium py-2 flex transition duration-300 items-center justify-center whitespace-nowrap rounded-md'], {
   variants: {
     intent: {
       primary: 'bg-primary text-white',
       secondary: 'bg-secondary text-accent hover:bg-secondary-hover',
       tertiary: 'bg-tertiary text-white',
+      outline: 'bg-transparent text-primary border border-primary hover:bg-primary/10',
     },
     fullWidth: {
       true: 'w-full',
